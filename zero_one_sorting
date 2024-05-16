@@ -4,7 +4,8 @@
 using namespace std;
 
 void sort_zero_one(vector<int> &v){
-    int count =0;
+
+  /*  int count =0;
     
     for(int i =0; i<v.size(); i++){
         if(v[i]==0){
@@ -19,7 +20,25 @@ void sort_zero_one(vector<int> &v){
         }
         else
         v[i]=1;
-    }
+    } */
+// using two pointer method
+
+int left_p = 0;
+int right_p = v.size()-1;
+
+while(left_p< right_p){
+if(v[left_p]==1 && v[right_p]==0){
+    v[left_p++] =0;
+    v[right_p--]=1;
+  }
+if( v[left_p] ==0){
+    left_p++;
+  }
+if( v[right_p] ==0){
+    left_p--;
+  }
+}
+
 }
 
 int main() {
