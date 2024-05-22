@@ -1,0 +1,23 @@
+// Task how to sort a given array
+
+#include <algorithm>
+#include <iostream> 
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    
+// taking an array from user keyboard
+    for(int i =0; i<n; i++){
+        cin>>arr[i];
+    }
+// sorting this array
+    sort(arr, arr + n);
+ 
+    for (int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+    }
+    
+    return 0;
+}
