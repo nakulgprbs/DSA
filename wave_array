@@ -1,0 +1,40 @@
+// Task 
+// a sorted array is given we have to convert it to wave array
+// example:- arr[1] >= arr[2] <= arr[3] >= arr[4] <= arr[5].....
+
+#include <algorithm>
+#include <iostream> 
+using namespace std;
+int main(){
+    int n,temp;
+    cin>>n;
+    int arr[n];
+    
+// taking an array from user keyboard
+    for(int i =0; i<n; i++){
+        cin>>arr[i];
+    }
+// sorting this array
+    sort(arr, arr + n);
+ 
+    for (int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+    }
+    cout<<endl;
+// converting wave type array 
+    for(int i= 1; i < n-1; i++){
+        if(i % 2 != 0){
+            temp = arr[i];
+            arr[i] = arr[i+1];
+        }
+        else{
+            arr[i] = temp;
+        }
+    }
+// printing wave array
+    for(int i =0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    
+    return 0;
+}
