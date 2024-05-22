@@ -1,0 +1,21 @@
+// finding missing element in array note that it only contains distinct integers in the range of 1 to N. 
+
+#include <iostream> 
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int arr[n-1];
+    
+    // taking array elements from user keyboard
+    for(int i =0; i<n-1; i++){
+        cin>>arr[i];
+    }
+    // checking which element is missing
+    for(int i =0; i<n-1; i++){
+        if(arr[i+1]-arr[i] > 1){
+            cout<<"Missing Element is :"<<arr[i] +1<<endl;
+        }
+    }
+    return 0;
+}
