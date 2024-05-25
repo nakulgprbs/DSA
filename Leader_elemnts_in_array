@@ -1,0 +1,37 @@
+// finding the leadering elemnts leader elemnt is greater than or equal to the all rightmost elements of it.
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int>findleader(int arr[], int n){
+    vector<int>leaders;
+    int leader = arr[n-1]; // rightmost element is always a leader.
+    for(int i =n-2; i>=0; i--){
+        if(arr[i]>= leader){
+            leader = arr[i];
+            leaders.push_back(leader);
+        }
+        
+    }
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
+}
+int main(){
+    int n;
+    cout<<"Enter length of Array :";
+    cin>>n;
+    int a[n];
+    cout<<"Enter Elements of Array :";
+    for(int i=0;i<n; i++){
+        cin>>a[i];
+    }
+    
+    vector<int>leaders = findleader(a,n);
+    
+    for(int led: leaders){
+        cout<<led<<" ";
+    }
+    return 0;
+}
