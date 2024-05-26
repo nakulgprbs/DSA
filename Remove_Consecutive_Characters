@@ -1,0 +1,24 @@
+ // To Remove Consecutive Characters
+
+#include <iostream>
+#include <stack>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int main() {
+   string str; 
+   
+   cout<<"Enter Your Input  :";
+   cin>>str;
+ 
+ // traversing the string and finding is there any Consecutive Characters if Yes then erase it.
+ for(int i =0; i<str.length(); i++){
+     if(str[i] == str[i-1]){
+         str.erase(i-1, 1);
+     }
+ }
+ cout<<str<<endl;
+    
+    return 0;
+}
