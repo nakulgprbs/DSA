@@ -1,0 +1,45 @@
+// check strings are Palindrome or not 
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+bool ispalindrome(string str){
+    // use transform function to transform all char to lower case
+    transform(str.begin(), str.end(), str.begin(), :: tolower);
+    
+    // to remove all white spaces use erase function 
+    str.erase(remove(str.begin(), str.end(), ' '), str.end());
+    
+    // make a copy of this string 
+    string s1 = str;
+    string s2 = str;
+    
+    // now reverse one of the two strings 
+    reverse(s2.begin(), s2.end());
+    
+    // now check wether both strings are equal or not 
+    if(s1 == s2){
+        return true;
+    }
+    return false;
+};
+
+int main() {
+   string str; 
+   
+   cout<<"Enter String  :";
+   cin>>str;
+ 
+   if(ispalindrome(str)){
+       cout<<"Strings are Palindrone."<<endl;
+   }
+   else{
+       cout<<"Strings are not Palindrone."<<endl;
+   }
+    
+
+    return 0;
+}
