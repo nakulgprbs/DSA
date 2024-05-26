@@ -1,2 +1,2 @@
 # DSA
-DSA code files using C++
+ this file contains DSA problems from different resourse. 
