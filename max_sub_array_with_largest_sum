@@ -1,0 +1,36 @@
+// finding Maximum SubArray with largest Sum
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
+int maxsum(vector<int>& arrs){
+    int current_sum = 0;
+    int max_sum = INT_MIN;
+    
+    for(int num : arrs){
+        current_sum = max(num, current_sum + num); // maximum of the number and current sum
+        max_sum = max(current_sum,max_sum); // maximum of the max sum and current sum
+    }
+    
+    return max_sum;
+};
+
+int main(){
+    int n;
+    vector<int>arr;
+    
+    cout<<"Enter length of array :";
+    cin>>n;
+    cout<<"Enter Elements of array :";
+    for(int i =0; i<n; i++){
+        int ele;
+        cin>>ele;
+        arr.push_back(ele);
+    }
+    cout<<"Maximum Subarray sum is :"<<maxsum(arr)<<endl;
+    
+    return 0;
+}
