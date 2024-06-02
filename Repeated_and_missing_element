@@ -1,0 +1,53 @@
+// find repeated and missing element in the given array of natural numbers 
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
+vector<int> element(vector<int>& arr, int n){
+    long long exp_sum = n*(n+1)/2;
+    long long exp_sq_sum = n*(n+1)*(2*n +1)/6;
+    
+    long long actual_sum = 0;
+    long long actual_sq_sum = 0;
+    for(int i : arr){
+        actual_sum = i + actual_sum;
+        actual_sq_sum = i*i + actual_sq_sum;
+    }
+    cout<<"Expected sum :"<<exp_sum<<" "<<"Expected Square Sum :"<<exp_sq_sum<<endl;
+    cout<<"Actual sum :"<<actual_sum<<" "<<"Actual Square Sum :"<<actual_sq_sum<<endl;
+    
+    // b-a = exp - actual
+    // b^2 - a^2 = exp^2 -act^2;
+    
+    long long  sum_diff = exp_sum - actual_sum;
+    long long  sq_sum_diff = exp_sq_sum - actual_sq_sum;
+    
+    // a+b = ( b^2 - a^2 )/ b-a
+    
+    long long div_sum = sq_sum_diff/sum_diff;
+    
+    // b = (a+b + b-a)/2
+    
+    int b = (div_sum + sum_diff)/2;
+    int a = div_sum - b; // a = a+b -b
+    
+    return {(int)a, (int)b};
+}
+
+int main(){
+    vector<int>arr;
+    int n;
+    cin>>n;
+    
+    for(int i = 0; i<n; i++){
+        int ele;
+        cin>>ele;
+        arr.push_back(ele);
+    }
+    vector<int>result = element(arr,n);
+    
+    cout<<"A & B :"<<result[0]<<" "<<result[1]<<endl;
+}
